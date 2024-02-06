@@ -73,4 +73,40 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+/////////////////////////////////////////////////
+
 // <--- Simple Array Methods -->
+// Why arrays have methods? Methods are simply functions that we can call on objects
+// Arrays themselves are also objects
+// Array methods are attached to all arrays that we create in JavaScript
+
+let arr = [`a`, `b`, `c`, `d`, `e`];
+// Slice Method -->
+// slice can extract part of array without changing the original array
+console.log(arr.slice(2)); // c d e.. did not set an end parameter
+console.log(arr.slice(2, 4)); // c d
+console.log(arr.slice(-2)); // d e .. last element of any array .. -1 is the last element of any array
+console.log(arr.slice(1, -2)); // b c
+console.log(arr.slice()); // creates a shallow copy of the array
+console.log([...arr]); // also a shallow copy
+
+// Splice Method -->
+// Splice DOES mutate the original array
+// console.log(arr.splice(2)); // c d e
+arr.splice(-1);
+console.log(arr); // a b ... originall array loses the part that is extracted
+
+// Reverse Method -->
+
+arr = [`a`, `b`, `c`, `d`, `e`];
+const arr2 = [`j`, `i`, `h`, `g`, `f`];
+console.log(arr2.reverse());
+console.log(arr2); // mutates original array
+
+// Concat -->
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log(...arr, ...arr2); //personal preference
+
+// Join -->
+console.log(letters.join(` - `)); // - seperator that we specified
