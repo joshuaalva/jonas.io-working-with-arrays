@@ -139,14 +139,15 @@ for (const [i, moves] of movements.entries()) {
   }
 }
 console.log(`For each --->`);
-movements.forEach(function (moves, index, array) {
+movements.forEach(function (moves, i, array) {
   if (moves > 0) {
-    console.log(`You deposited ${moves}`);
+    console.log(`Movement ${i + 1}: You deposited ${moves}`);
   } else {
-    console.log(`You withdrew ${Math.abs(moves)}`); //abs takes away the - sign
+    console.log(`Movement ${i + 1} ${Math.abs(moves)}`); //abs takes away the - sign
   }
 });
 
+//abs takes away the - sign
 // 0: function(200)
 // 1: function(450)
 // 2: function(400)...
