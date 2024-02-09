@@ -61,15 +61,36 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = ``;
+  // good practice to pass data into the function instead of having the function work with a global variable
+  // pass the data that a function needs into the function
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? `deposit` : `withdrawal`;
+
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+      <div class="movements__value">${mov}</div>
+    </div>`;
+
+    containerMovements.insertAdjacentHTML(`afterbegin`, html);
+  });
+};
+
+displayMovements(account1.movements);
+// console.log(containerMovements.innerHTML);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -128,26 +149,51 @@ const currencies = new Map([
 
 // <---  Looping Arrays: forEach --->
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // for (const moves of movements) {
-for (const [i, moves] of movements.entries()) {
-  if (moves > 0) {
-    console.log(`Movement ${i + 1}: You deposited ${moves}`);
-  } else {
-    console.log(`Movement ${i + 1} ${Math.abs(moves)}`); //abs takes away the - sign
-  }
-}
-console.log(`For each --->`);
-movements.forEach(function (moves, i, array) {
-  if (moves > 0) {
-    console.log(`Movement ${i + 1}: You deposited ${moves}`);
-  } else {
-    console.log(`Movement ${i + 1} ${Math.abs(moves)}`); //abs takes away the - sign
-  }
-});
+// for (const [i, moves] of movements.entries()) {
+//   if (moves > 0) {
+//     console.log(`Movement ${i + 1}: You deposited ${moves}`);
+//   } else {
+//     console.log(`Movement ${i + 1} ${Math.abs(moves)}`); //abs takes away the - sign
+//   }
+// }
+// console.log(`For each --->`);
+// movements.forEach(function (moves, i, array) {
+//   if (moves > 0) {
+//     console.log(`Movement ${i + 1}: You deposited ${moves}`);
+//   } else {
+//     console.log(`Movement ${i + 1} ${Math.abs(moves)}`); //abs takes away the - sign
+//   }
+// });
 
 //abs takes away the - sign
 // 0: function(200)
 // 1: function(450)
 // 2: function(400)...
+
+// you cannot break out of a forEach loop... continue and break do not work
+// forEach will always loop out of an entire array
+
+// <---  forEach with Maps and Sets --->
+
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
+
+// Map
+// currencies.forEach(function (value, key, map) {
+//   console.log(`${key}: ${value}`);
+// });
+
+// Set
+// const currenciesUnique = new Set([`USD`, `GBP`, `USD`, `EUR`, `EUR`]);
+// console.log(currenciesUnique);
+// currenciesUnique.forEach(function (value, _, map) {
+//   console.log(`${value}: ${value}`);
+// });
+
+// _  underscore is a throwaway in JavaScript
