@@ -197,3 +197,49 @@ displayMovements(account1.movements);
 // });
 
 // _  underscore is a throwaway in JavaScript
+
+// Coding Challenge #1
+
+// const dogsJulia = [3, 5, 2, 12, 7];
+// const dogsKate = [4, 1, 15, 8, 3];
+
+// const checkDogs = function (dogsJulia, dogsKate) {
+//   const dogsJuliaCorrected = dogsJulia.slice();
+//   dogsJuliaCorrected.splice(0, 1);
+//   dogsJuliaCorrected.splice(-2);
+//   // console.log(dogsJuliaCorrected);
+//   const dogs = dogsJuliaCorrected.concat(dogsKate);
+//   // console.log(dogs);
+
+//   dogs.forEach(function (dog, i) {
+//     if (dog >= 3) {
+//       console.log(`Dog ${i + 1} is an adult, and is ${dog} years old`);
+//     } else {
+//       console.log(`Dog ${i + 1} is still a puppy and is ${dog} years old`);
+//     }
+//   });
+// };
+
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+// <--- Data Transformations: Map, Filter, Recude --->
+// Map Method
+const array1 = [1, 4, 9, 6];
+const map1 = array1.map(x => x * 2);
+console.log(map1); // 2, 8, 18, 12
+// builds us a brand new array
+
+// Filter Method
+const words = [`spray`, `elite`, `exuberant`, `destruction`];
+const result = words.filter(word => word.length > 6);
+console.log(result); // exuberant destruction
+// filter an array to satisfy a certain condition
+
+// Reduce Method
+// builds all array elements down to one single value (adding them all together)
+const array2 = [1, 2, 3, 4];
+const initialValue = 0;
+const sumWithInitial = array2.reduce(
+  (array2, currentValue) => array2 + currentValue + initialValue
+);
+console.log(sumWithInitial);
