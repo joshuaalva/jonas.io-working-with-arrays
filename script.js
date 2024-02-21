@@ -248,9 +248,48 @@ console.log(sumWithInitial);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const eurToUsd = 1.1;
-const movementsUSD = movements.map(function (mov) {
-  return mov * eurToUsd;
-});
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
 
+const movementsUSD = movements.map(mov => mov * eurToUsd);
 console.log(movements);
 console.log(movementsUSD);
+
+// in map method we write a function
+// different philosophies or paradigms
+// map is more functional programming
+// modern js there is a push in the direction of functional programming
+// map and callback functions is the new and modern way
+const movementsUDSfor = [];
+for (const mov of movements) movementsUDSfor.push(mov * eurToUsd);
+console.log(movementsUDSfor);
+
+const movementsDescription = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? `Deposited` : `Withdrew`} ${Math.abs(
+      mov
+    )}`
+);
+console.log(movementsDescription);
+
+// <--- Computing Usernames --->
+
+// each function should recieve the data it is going to be working with vs. using a global variable
+// side effects in javascript
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(` `)
+      .map(name => name[0])
+      .join(``)
+      .toUpperCase();
+  });
+};
+
+createUsernames(accounts);
+console.log(accounts);
+
+// <--- The Filter Method --->
