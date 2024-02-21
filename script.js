@@ -293,3 +293,34 @@ createUsernames(accounts);
 console.log(accounts);
 
 // <--- The Filter Method --->
+
+// used to filter for elements that satisft a certain condition
+// using a callback function
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0; // boolean value
+});
+
+console.log(movements);
+console.log(deposits); // only positive values
+
+const deposits2 = [];
+
+for (const mov of movements) {
+  if (mov > 0) deposits2.push(mov);
+}
+
+// for (const mov of movements) {
+//   if (mov < 0) withdrawals.push(mov);
+// }
+// console.log(deposits2);
+// console.log(withdrawals);
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(withdrawals);
+
+// <--- The Reduce Method --->
+
+// data transformation methods
+// map , filter , reduce
+// use the reduce method to essentially boil down all the elements in an array
