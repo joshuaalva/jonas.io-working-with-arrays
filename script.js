@@ -324,3 +324,12 @@ console.log(withdrawals);
 // data transformation methods
 // map , filter , reduce
 // use the reduce method to essentially boil down all the elements in an array
+
+// acc = accumulator
+// accumulator is like a snowball
+const balance = movements.reduce(function (acc, cur, i, arr) {
+  console.log(`iteration ${i} ${acc}`);
+  return acc + cur;
+}, 0);
+
+console.log(balance);
