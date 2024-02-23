@@ -81,6 +81,14 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+const calcPrintBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+
+calcPrintBalance(account1.movements);
+
 // console.log(containerMovements.innerHTML);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -340,9 +348,13 @@ let balance2 = 0;
 for (const mov of movements) balance2 += mov;
 console.log(balance2);
 
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov);
-  labelBalance.textContent = `${balance}`;
-};
+// Maximum value
+// Important question to ask... what is the purpose of the accumulator
+// What is the purpose of the accumulator is important when using reduce
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
 
-calcDisplayBalance(account1).movements;
+// Coding Challenge #2
