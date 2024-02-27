@@ -358,3 +358,23 @@ const max = movements.reduce((acc, mov) => {
 console.log(max);
 
 // Coding Challenge #2
+
+const testData1 = [5, 2, 4, 1, 15, 8, 3];
+const testData2 = [16, 6, 10, 5, 6, 1, 4];
+// console.log(dogAges);
+const calcAverageHumanAge = function (ages) {
+  // 1
+  // calculate the dog age in human years using the following formula
+  // if the dog is <= 2 years old, humanAge = 2 * dogAge
+  // if the dog is > 2 years old, humanAge = 16 + dogAge * 4
+  // 2
+  // exclude all dogs that are less than 18 human years old
+  // 3
+  // calculate the average human age of all adult dogs
+  // 4
+  // run the function for both test data sets
+};
+
+calcAverageHumanAge(ages);
+
+// monday
