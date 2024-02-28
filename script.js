@@ -234,13 +234,13 @@ calcPrintBalance(account1.movements);
 // Map Method
 const array1 = [1, 4, 9, 6];
 const map1 = array1.map(x => x * 2);
-console.log(map1); // 2, 8, 18, 12
+// console.log(map1); // 2, 8, 18, 12
 // builds us a brand new array
 
 // Filter Method
 const words = [`spray`, `elite`, `exuberant`, `destruction`];
 const result = words.filter(word => word.length > 6);
-console.log(result); // exuberant destruction
+// console.log(result); // exuberant destruction
 // filter an array to satisfy a certain condition
 
 // Reduce Method
@@ -250,7 +250,7 @@ const initialValue = 0;
 const sumWithInitial = array2.reduce(
   (array2, currentValue) => array2 + currentValue + initialValue
 );
-console.log(sumWithInitial);
+// console.log(sumWithInitial);
 
 // <--- The Map Method --->
 
@@ -261,8 +261,8 @@ const eurToUsd = 1.1;
 // });
 
 const movementsUSD = movements.map(mov => mov * eurToUsd);
-console.log(movements);
-console.log(movementsUSD);
+// console.log(movements);
+// console.log(movementsUSD);
 
 // in map method we write a function
 // different philosophies or paradigms
@@ -271,7 +271,7 @@ console.log(movementsUSD);
 // map and callback functions is the new and modern way
 const movementsUDSfor = [];
 for (const mov of movements) movementsUDSfor.push(mov * eurToUsd);
-console.log(movementsUDSfor);
+// console.log(movementsUDSfor);
 
 const movementsDescription = movements.map(
   (mov, i) =>
@@ -279,7 +279,7 @@ const movementsDescription = movements.map(
       mov
     )}`
 );
-console.log(movementsDescription);
+// console.log(movementsDescription);
 
 // <--- Computing Usernames --->
 
@@ -297,26 +297,26 @@ const createUsernames = function (accs) {
   });
 };
 
-createUsernames(accounts);
-console.log(accounts);
+// createUsernames(accounts);
+// console.log(accounts);
 
 // <--- The Filter Method --->
 
 // used to filter for elements that satisft a certain condition
 // using a callback function
 
-const deposits = movements.filter(function (mov) {
-  return mov > 0; // boolean value
-});
+// const deposits = movements.filter(function (mov) {
+//   return mov > 0; // boolean value
+// });
 
-console.log(movements);
-console.log(deposits); // only positive values
+// console.log(movements);
+// console.log(deposits); // only positive values
 
-const deposits2 = [];
+// const deposits2 = [];
 
-for (const mov of movements) {
-  if (mov > 0) deposits2.push(mov);
-}
+// for (const mov of movements) {
+//   if (mov > 0) deposits2.push(mov);
+// }
 
 // for (const mov of movements) {
 //   if (mov < 0) withdrawals.push(mov);
@@ -324,8 +324,8 @@ for (const mov of movements) {
 // console.log(deposits2);
 // console.log(withdrawals);
 
-const withdrawals = movements.filter(mov => mov < 0);
-console.log(withdrawals);
+// const withdrawals = movements.filter(mov => mov < 0);
+// console.log(withdrawals);
 
 // <--- The Reduce Method --->
 
@@ -340,41 +340,49 @@ console.log(withdrawals);
 //   return acc + cur;
 // }, 0);
 
-const balance = movements.reduce((acc, cur) => acc + cur, 0);
+// const balance = movements.reduce((acc, cur) => acc + cur, 0);
 
-console.log(balance);
+// console.log(balance);
 
-let balance2 = 0;
-for (const mov of movements) balance2 += mov;
-console.log(balance2);
+// let balance2 = 0;
+// for (const mov of movements) balance2 += mov;
+// console.log(balance2);
 
 // Maximum value
 // Important question to ask... what is the purpose of the accumulator
 // What is the purpose of the accumulator is important when using reduce
-const max = movements.reduce((acc, mov) => {
-  if (acc > mov) return acc;
-  else return mov;
-}, movements[0]);
-console.log(max);
+// const max = movements.reduce((acc, mov) => {
+//   if (acc > mov) return acc;
+//   else return mov;
+// }, movements[0]);
+// console.log(max);
 
 // Coding Challenge #2
 
-const testData1 = [5, 2, 4, 1, 15, 8, 3];
-const testData2 = [16, 6, 10, 5, 6, 1, 4];
+// const testData1 = [5, 2, 4, 1, 15, 8, 3];
+// const testData2 = [16, 6, 10, 5, 6, 1, 4];
 // console.log(dogAges);
-const calcAverageHumanAge = function (ages) {
-  // 1
-  // calculate the dog age in human years using the following formula
-  // if the dog is <= 2 years old, humanAge = 2 * dogAge
-  // if the dog is > 2 years old, humanAge = 16 + dogAge * 4
-  // 2
-  // exclude all dogs that are less than 18 human years old
-  // 3
-  // calculate the average human age of all adult dogs
-  // 4
-  // run the function for both test data sets
-};
+// 1
+// calculate the dog age in human years using the following formula
+// if the dog is <= 2 years old, humanAge = 2 * dogAge
+// if the dog is > 2 years old, humanAge = 16 + dogAge * 4
+// 2
+// exclude all dogs that are less than 18 human years old
+// 3
+// calculate the average human age of all adult dogs
+// 4
+// // run the function for both test data sets
+// const calcAverageHumanAge = function (ages) {
+//   const humanAges = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+//   const adults = humanAges.filter(age => age >= 18);
+//   // console.log(humanAges, adults);
 
-calcAverageHumanAge(ages);
+//   const average = adults.reduce((acc, age) => acc + age, 0) / adults.length;
+//   return average;
+// };
 
-// monday
+// const avg1 = calcAverageHumanAge(testData1);
+// const avg2 = calcAverageHumanAge(testData2);
+// console.log(avg1, avg2);
+
+// <--- The Magic of Chaining Methods --->
