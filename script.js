@@ -84,7 +84,7 @@ displayMovements(account1.movements);
 
 const calcPrintBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} EUR`;
+  labelBalance.textContent = `${balance}€`;
 };
 
 calcPrintBalance(account1.movements);
@@ -386,3 +386,21 @@ const createUsernames = function (accs) {
 // console.log(avg1, avg2);
 
 // <--- The Magic of Chaining Methods --->
+
+// can only chain a method if it returns a new array
+// reduce returns a value so you cannot continue to change methods
+// PIPELINE >>>
+const totalDespositsUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+// console.log(totalDespositsUSD);
+
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+};
+
+calcDisplaySummary(account1.movements);
