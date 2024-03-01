@@ -409,3 +409,5 @@ const calcDisplaySummary = function (movements) {
 };
 
 calcDisplaySummary(account1.movements);
+
+//
