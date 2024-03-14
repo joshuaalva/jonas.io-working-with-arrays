@@ -418,7 +418,7 @@ const calcDisplaySummary = function (acc) {
   labelSumInterest.textContent = `${interest}€`;
 };
 
-calcDisplaySummary(account1.movements);
+// calcDisplaySummary(account1.movements);
 
 // <--- Coding Challenge #3 --->
 // rewrite the 'calcaveragehumanage' function from the previous challenge, but this time as an arrow function, and using chaining
@@ -493,6 +493,6 @@ btnLogin.addEventListener(`click`, function (e) {
     inputLoginPin.blur();
     displayMovements(currentAccount.movements);
     calcPrintBalance(currentAccount.movements);
-    calcDisplaySummary(currentAccount.movements);
+    calcDisplaySummary(currentAccount);
   }
 });
