@@ -34,6 +34,7 @@ const account4 = {
 };
 
 const accounts = [account1, account2, account3, account4];
+// console.log(accounts.username);
 
 // Elements
 const labelWelcome = document.querySelector('.welcome');
@@ -80,7 +81,7 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
+// displayMovements(account1.movements);
 
 const calcPrintBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
@@ -292,12 +293,11 @@ const createUsernames = function (accs) {
       .toLowerCase()
       .split(` `)
       .map(name => name[0])
-      .join(``)
-      .toUpperCase();
+      .join(``);
   });
 };
 
-// createUsernames(accounts);
+createUsernames(accounts);
 // console.log(accounts);
 
 // <--- The Filter Method --->
@@ -411,7 +411,7 @@ const calcDisplaySummary = function (movements) {
     .filter(mov => mov > 0)
     .map(deposit => (deposit * 1.2) / 100)
     .filter((int, i, arr) => {
-      console.log(arr);
+      // console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
@@ -445,15 +445,51 @@ const calcAverageHumanAge = ages =>
 
 const avg1 = calcAverageHumanAge(testData1);
 const avg2 = calcAverageHumanAge(testData2);
-console.log(avg1, avg2);
+// console.log(avg1, avg2);
 
 // <--- The Find Method --->
 // we can use the find method to retrieve a unit of an array based on a condition
 const firstWithdrawal = movements.find(mov => mov < 0);
-console.log(movements);
-console.log(firstWithdrawal);
+// console.log(movements);
+// console.log(firstWithdrawal);
 
-console.log(accounts);
+// console.log(accounts);
 // can find an object in the array based off properties in the object
 const account = accounts.find(acc => acc.owner === `Jessica Davis`);
-console.log(account);
+// console.log(account);
+const accountNone = accounts.find(acc => acc.owner === `Joshua Alvarado`); // undefined
+// console.log(accountNone);
+const accountPractice = accounts.find(acc => acc.owner === `Sarah Smith`);
+// console.log(accountPractice);
+
+// goal of the find method is to just find
+
+// <--- Implementing Login Functionality --->
+
+// originally when you click the login button on event listener the page reloads because it is in a form
+// default behavior
+// we stop this from happening
+// add an event to a callback funtion
+// add prevent default method
+
+let currentAccount;
+
+btnLogin.addEventListener(`click`, function (e) {
+  // prevent form from submitting
+  e.preventDefault();
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  // console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    labelWelcome.textContent = `Welcome Back ${
+      currentAccount.owner.split(` `)[0]
+    }`;
+
+    containerApp.style.opacity = 100;
+    displayMovements(currentAccount.movements);
+    calcPrintBalance(currentAccount.movements);
+    calcDisplaySummary(currentAccount.movements);
+  }
+});
