@@ -446,3 +446,14 @@ const calcAverageHumanAge = ages =>
 const avg1 = calcAverageHumanAge(testData1);
 const avg2 = calcAverageHumanAge(testData2);
 console.log(avg1, avg2);
+
+// <--- The Find Method --->
+// we can use the find method to retrieve a unit of an array based on a condition
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+// can find an object in the array based off properties in the object
+const account = accounts.find(acc => acc.owner === `Jessica Davis`);
+console.log(account);
