@@ -496,3 +496,10 @@ btnLogin.addEventListener(`click`, function (e) {
     calcDisplaySummary(currentAccount);
   }
 });
+
+// <--- Implementing Transfers --->
+btnTransfer.addEventListener(`click`, function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const recieverAcc = Number(inputTransferTo.value);
+});
