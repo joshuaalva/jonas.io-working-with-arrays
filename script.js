@@ -83,12 +83,12 @@ const displayMovements = function (movements) {
 
 // displayMovements(account1.movements);
 
-const calcPrintBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance}€`;
+const calcPrintBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${acc.balance}€`;
 };
 
-calcPrintBalance(account1.movements);
+// calcPrintBalance(movements);
 
 // console.log(containerMovements.innerHTML);
 /////////////////////////////////////////////////
@@ -504,5 +504,14 @@ btnTransfer.addEventListener(`click`, function (e) {
   const recieverAcc = accounts.find(
     acc => acc.username === inputTransferTo.value
   );
-  console.log(amount, recieverAcc);
+  // console.log(amount, recieverAcc);
+
+  if (
+    amount > 0 &&
+    recieverAcc &&
+    currentAccount.balance >= amount &&
+    recieverAcc.username !== currentAccount.username
+  ) {
+    console.log(`Transfer Valid`);
+  }
 });
