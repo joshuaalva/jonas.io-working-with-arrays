@@ -83,7 +83,7 @@ const displayMovements = function (movements) {
 
 // displayMovements(account1.movements);
 
-const calcPrintBalance = function (acc) {
+const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${acc.balance}€`;
 };
@@ -492,7 +492,7 @@ btnLogin.addEventListener(`click`, function (e) {
     inputLoginUsername.value = inputLoginPin.value = ``;
     inputLoginPin.blur();
     displayMovements(currentAccount.movements);
-    calcPrintBalance(currentAccount.movements);
+    calcDisplayBalance(currentAccount.movements);
     calcDisplaySummary(currentAccount);
   }
 });
