@@ -515,3 +515,5 @@ btnTransfer.addEventListener(`click`, function (e) {
     console.log(`Transfer Valid`);
   }
 });
+
+// <--- The findIndex Method --->
