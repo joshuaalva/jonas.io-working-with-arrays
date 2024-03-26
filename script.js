@@ -474,6 +474,12 @@ const accountPractice = accounts.find(acc => acc.owner === `Sarah Smith`);
 
 let currentAccount;
 
+const updateUI = function (acc) {
+  displayMovements(acc.movements);
+  calcDisplayBalance(acc);
+  calcDisplaySummary(acc);
+};
+
 btnLogin.addEventListener(`click`, function (e) {
   // prevent form from submitting
   e.preventDefault();
@@ -491,9 +497,7 @@ btnLogin.addEventListener(`click`, function (e) {
     // clear input fields
     inputLoginUsername.value = inputLoginPin.value = ``;
     inputLoginPin.blur();
-    displayMovements(currentAccount.movements);
-    calcDisplayBalance(currentAccount);
-    calcDisplaySummary(currentAccount);
+    updateUI(currentAccount);
   }
 });
 
@@ -512,7 +516,11 @@ btnTransfer.addEventListener(`click`, function (e) {
     currentAccount.balance >= amount &&
     recieverAcc?.username !== currentAccount.username
   ) {
-    console.log(`Transfer Valid`);
+    // Doing the trasnfer
+    currentAccounts.movements.push(-amount);
+    recieverAcc.movements.push(amount);
+    // Update UI
+    updateUI(currentAccount);
   }
 });
 
