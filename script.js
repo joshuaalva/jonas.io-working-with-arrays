@@ -509,7 +509,7 @@ btnTransfer.addEventListener(`click`, function (e) {
     acc => acc.username === inputTransferTo.value
   );
 
-  inputTransferAmount.value = inputTransferTo = ``;
+  inputTransferAmount.value = inputTransferTo.value = ``;
 
   if (
     amount > 0 &&
@@ -526,3 +526,24 @@ btnTransfer.addEventListener(`click`, function (e) {
 });
 
 // <--- The findIndex Method --->
+
+// works almost the same way of find
+// but returns the index of the found element and not the element itself
+// to delete an element from an array we use the splice method
+// but we need to know the index to splice
+// that's where this comes in handy
+
+btnClose.addEventListener(`click`, function (e) {
+  e.preventDefault();
+  // console.log(`delete`);
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    console.log(index);
+    accounts.splice(index, 1);
+  }
+});
