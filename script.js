@@ -543,9 +543,16 @@ btnClose.addEventListener(`click`, function (e) {
     const index = accounts.findIndex(
       acc => acc.username === currentAccount.username
     );
-    console.log(index);
+    // console.log(index);
+    // delete account
     accounts.splice(index, 1);
+    // Hide UI
+    containerApp.style.opacity = 0;
   }
+  inputCloseUsername.value = inputClosePin.value = ``;
 });
 
-// find index
+// index of can only search for a value if it is in the array
+// with findindex we can create a condition
+
+// Some and Every
