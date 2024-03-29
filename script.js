@@ -556,3 +556,34 @@ btnClose.addEventListener(`click`, function (e) {
 // with findindex we can create a condition
 
 // Some and Every
+// console.log(movements);
+// equality
+// console.log(movements.includes(-130)); // can check for equality
+// where can we check for a condition
+// condition
+const anyDesposits = movements.some(mov => mov > 0); // callback function
+const biggerDeposits = movements.some(mov => mov > 5000);
+// console.log(anyDesposits);
+// console.log(biggerDeposits);
+
+btnLoan.addEventListener(`click`, function (e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // add movement
+    currentAccount.movements.push(amount);
+    //update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = ``;
+});
+
+// every
+// console.log(movements.every(mov => mov > 0)); // false // bc all the movements are not positive
+// console.log(account4.movements.every(mov => mov > 0)); // true // all of the values are above 0
+
+// seperate callback
+const deposit = mov => mov > 0; // don't have to rewrite mov => mov > ... every time
+// console.log(movements.some(deposit));
+
+// flat and flatmap
