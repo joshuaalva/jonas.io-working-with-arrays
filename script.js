@@ -547,3 +547,5 @@ btnClose.addEventListener(`click`, function (e) {
     accounts.splice(index, 1);
   }
 });
+
+// find index
