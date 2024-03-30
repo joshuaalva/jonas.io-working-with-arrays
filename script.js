@@ -586,4 +586,36 @@ btnLoan.addEventListener(`click`, function (e) {
 const deposit = mov => mov > 0; // don't have to rewrite mov => mov > ... every time
 // console.log(movements.some(deposit));
 
-// flat and flatmap
+// <--- flat and flatmap --->
+
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat()); // removed the arrays and flattened the array
+// // output: [1, 2, 3, 4, 5, 6, 7, 8 ];
+// const arrDeep = [[[[1, 2], 3]], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat());
+// // flat only goes one level deep when flattening an array
+// console.log(arrDeep.flat(2));
+// // goes two levels deep with the 2
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements);
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+// const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(overallBalance);
+
+// make it prettier
+const overallBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance);
+
+//flatMap
+const overallBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance2);
+
+// flatMap can only go one level and you cannot change it
+
+// <--- Sorting Arrays --->
