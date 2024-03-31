@@ -619,3 +619,12 @@ console.log(overallBalance2);
 // flatMap can only go one level and you cannot change it
 
 // <--- Sorting Arrays --->
+
+// strings
+const owners = [`Jonas`, `Zach`, `Adam`, `Martha`];
+console.log(owners.sort()); // sorts alphabetically
+// sort() mutates original array
+
+// numbers
+console.log(movements);
+console.log(movements.sort());
