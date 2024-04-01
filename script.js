@@ -608,13 +608,13 @@ const overallBalance = accounts
   .map(acc => acc.movements)
   .flat()
   .reduce((acc, mov) => acc + mov, 0);
-console.log(overallBalance);
+// console.log(overallBalance);
 
 //flatMap
 const overallBalance2 = accounts
   .flatMap(acc => acc.movements)
   .reduce((acc, mov) => acc + mov, 0);
-console.log(overallBalance2);
+// console.log(overallBalance2);
 
 // flatMap can only go one level and you cannot change it
 
@@ -627,4 +627,17 @@ console.log(owners.sort()); // sorts alphabetically
 
 // numbers
 console.log(movements);
-console.log(movements.sort());
+// console.log(movements.sort());
+// return < 0, A before B (keep order)
+// > 0 B before A (switch order)
+// ascending
+console.log(
+  movements.sort((a, b) => {
+    if (a > b) return 1;
+    if (a < b) return -1;
+  })
+);
+// we can simplify them by working with numbers
+// descending & simplified
+movements.sort((a, b) => b - a);
+console.log(movements);
