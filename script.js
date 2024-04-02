@@ -62,11 +62,14 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = ``;
   // good practice to pass data into the function instead of having the function work with a global variable
   // pass the data that a function needs into the function
-  movements.forEach(function (mov, i) {
+  // create a copy using slice so we don't mutate the original array
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? `deposit` : `withdrawal`;
 
     const html = `
@@ -622,22 +625,29 @@ const overallBalance2 = accounts
 
 // strings
 const owners = [`Jonas`, `Zach`, `Adam`, `Martha`];
-console.log(owners.sort()); // sorts alphabetically
+// console.log(owners.sort()); // sorts alphabetically
 // sort() mutates original array
 
 // numbers
-console.log(movements);
+// console.log(movements);
 // console.log(movements.sort());
 // return < 0, A before B (keep order)
 // > 0 B before A (switch order)
 // ascending
-console.log(
-  movements.sort((a, b) => {
-    if (a > b) return 1;
-    if (a < b) return -1;
-  })
-);
+// console.log(
+//   movements.sort((a, b) => {
+//     if (a > b) return 1;
+//     if (a < b) return -1;
+//   })
+// );
 // we can simplify them by working with numbers
 // descending & simplified
 movements.sort((a, b) => b - a);
-console.log(movements);
+// console.log(movements);
+let sorted = false;
+
+btnSort.addEventListener(`click`, function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
