@@ -651,3 +651,11 @@ btnSort.addEventListener(`click`, function (e) {
   displayMovements(currentAccount.movements, !sorted);
   sorted = !sorted;
 });
+
+// <--- More Ways of Creating and Filling Arrays --->
+
+console.log([1, 2, 3, 4, 5, 6, 7]);
+console.log(new Array([1, 2, 3, 4, 5, 6, 7]));
+// we can generate arrays programatically
+const x = new Array(7);
+console.log(x); // [empty × 7] // creates 7 empty elements
