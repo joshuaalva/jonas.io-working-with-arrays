@@ -654,8 +654,61 @@ btnSort.addEventListener(`click`, function (e) {
 
 // <--- More Ways of Creating and Filling Arrays --->
 
-console.log([1, 2, 3, 4, 5, 6, 7]);
-console.log(new Array([1, 2, 3, 4, 5, 6, 7]));
+// console.log([1, 2, 3, 4, 5, 6, 7]);
+// console.log(new Array([1, 2, 3, 4, 5, 6, 7]));
+// Empty Arrays + Fill Method
 // we can generate arrays programatically
 const x = new Array(7);
-console.log(x); // [empty × 7] // creates 7 empty elements
+// console.log(x); // [empty × 7] // creates 7 empty elements
+// x.fill(1);
+// x.fill(1, 3); // only starts at index 3 so 3 empty the rest 1
+// fills all empty slots with '1' // mutates the actual array
+
+// Array.from
+// On Array object we call the from() method
+const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
+// _ means not using the parameter
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+// console.log(z);
+// create an array of 100 w/ random dice roll
+const diceRoll = Array.from(
+  { length: 100 },
+  i => Math.floor(Math.random() * 6) + 1
+);
+// console.log(diceRoll);
+
+labelBalance.addEventListener(`click`, function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll(`.movements__value`),
+    el => Number(el.textContent.replace(`€`, ``))
+  );
+  // console.log(movementsUI);
+  // but would have to do the mapping seperately
+  const movementsUI2 = [...document.querySelectorAll(`.movements__value`)];
+  // console.log(movementsUI2);
+});
+
+// <--- Summary: Which Array Method to Use? --->
+
+// 23 different methods
+// Which array method to use?
+// I want... to mutate original array? a new array? an array indedx? know if array includes... to transform a value.
+// to mutate original array ------>
+// add to original: .push(end) .unshift(start)
+// remove from original: .pop, .shift, .slice
+// others: .reverse, .sort, .fill
+// a new array ------>
+//.map, .filter, .slice, .concat, .flat, .flatMap
+// an array index ------>
+// .indexOf, .findIndex
+// an array element ------>
+// .find
+// know if array includes ------>
+// .includes, .some, .every
+// a new string ------>
+// .join
+// to transform a value ------>
+// .reduce
+// to just loop array ------>
+// .forEach
