@@ -712,3 +712,20 @@ labelBalance.addEventListener(`click`, function () {
 // .reduce
 // to just loop array ------>
 // .forEach
+
+// <--- Array Methods Practice --->
+
+// .1
+// const bankDepositSum = accounts.map(acc => acc.movements).flat();
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+
+// console.log(bankDepositSum);
+
+const numDeposits1000 = accounts
+  .flatMap(acc => acc.movements)
+  // .filter(mov => mov > 1000).length;
+  .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+console.log(numDeposits1000);
