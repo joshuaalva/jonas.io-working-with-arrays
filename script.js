@@ -738,3 +738,15 @@ console.log(numDeposits1000);
 // prefix ++ operator before the a
 
 // .3
+// reduce is like the swiss army knife of array methods
+const sums = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+
+console.log(sums);
