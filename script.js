@@ -750,7 +750,7 @@ const sums = accounts
     { deposits: 0, withdrawals: 0 }
   );
 
-console.log(sums); // {deposits: 25180, withdrawals: -7340}
+// console.log(sums); // {deposits: 25180, withdrawals: -7340}
 
 // .4
 // this is a nice title -> This Is a Nice Title
@@ -766,6 +766,13 @@ const convertTitleCase = function (title) {
   return capitalize(titleCase);
 };
 
-console.log(convertTitleCase(`this is a nice title`));
-console.log(convertTitleCase(`and here is a nother title with an example`));
-console.log(convertTitleCase(`this is a LONG title but not too long`));
+// console.log(convertTitleCase(`this is a nice title`));
+// console.log(convertTitleCase(`and here is a nother title with an example`));
+// console.log(convertTitleCase(`this is a LONG title but not too long`));
+
+// <--- Coding Challenge #4 --->
+/*
+Julia and Kate are still studying dogs, and this time they are studying if dogs are eating too much or too little. 
+Eating too much means the dog's current food portion is larger than recommended portion, and eating too little is the opposite. 
+Eating an okay amount means the dog's current food portion is within a range 10% above and 10% below the recommended portion.
+*/
