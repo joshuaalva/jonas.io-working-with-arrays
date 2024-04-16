@@ -776,3 +776,19 @@ Julia and Kate are still studying dogs, and this time they are studying if dogs 
 Eating too much means the dog's current food portion is larger than recommended portion, and eating too little is the opposite. 
 Eating an okay amount means the dog's current food portion is within a range 10% above and 10% below the recommended portion.
 */
+
+// Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended * 1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+/*
+loop over dogs array containg dog objects 
+for each dog calculate the recommended food portion and add it to the object as a new property 
+
+recommendedFood = weight ** 0.75 * 28
+*/
