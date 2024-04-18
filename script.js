@@ -792,3 +792,21 @@ for each dog calculate the recommended food portion and add it to the object as 
 
 recommendedFood = weight ** 0.75 * 28
 */
+
+/*
+1
+loop over array
+do not create new array
+.forEach
+2
+find sarahs dog and log to the console whether its eating too much or too little
+*/
+
+dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
+const dogSarah = dogs.find(dog => dog.owners.includes(`Sarah`));
+// console.log(dogSarah);
+console.log(
+  `Sarah's dog is eating ${
+    dogSarah.curFood > dogSarah.recFood ? `too much` : `too little`
+  }`
+);
