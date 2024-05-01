@@ -810,3 +810,48 @@ console.log(
     dogSarah.curFood > dogSarah.recFood ? `too much` : `too little`
   }`
 );
+
+// 3.
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recFood)
+  .flatMap(dog => dog.owners);
+
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood < dog.recFood)
+  .flatMap(dog => dog.owners);
+
+console.log(ownersEatTooMuch);
+console.log(ownersEatTooLittle);
+
+// 4.
+
+/*
+"Matilda, Alice, and Bob's dogs eat too much!"
+"Sarah, John, and Michaels dogs eat too little!"
+*/
+
+console.log(`${ownersEatTooMuch.join(` and `)}'s dogs eat too much`);
+console.log(`${ownersEatTooLittle.join(` and `)}'s eat too little`);
+
+// 5.
+console.log(dogs.some(dog => dog.curFood === dog.recFood));
+
+// 6.
+// current > (recommended * 0.90) && current < (recommended * 1.10)
+// console.log(
+//   dogs.some(
+//     dog => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1
+//   )
+// );
+
+const checkEatingOkay = dog =>
+  dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+console.log(dogs.some(checkEatingOkay));
+
+// 7.
+console.log(dogs.filter(checkEatingOkay)); // Michaels dog
+
+// 8.
+// sort it by recommended food portion in an ascending order
+const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+console.log(dogsSorted);
